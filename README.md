@@ -23,3 +23,49 @@ RepoGuardian bridges the gap between traditional static analysis (which misses c
 Install directly from GitHub:
 ```bash
 pip install git+https://github.com/YOUR_USERNAME/repoguardian.git
+```
+##  Configuration (For API Users)
+```bash
+cp .env.example .env
+# Edit .env and add your API keys
+```
+(If you use local Ollama, you can skip this step!)
+
+### 2. Scan Your Codebase
+```bash
+# Run locally with Ollama (Free & Private)
+repoguardian scan ./my-project -p ollama -m qwen2.5-coder:7b
+
+# Run with DeepSeek API (Fast & Cost-Effective)
+repoguardian scan ./my-project -p deepseek -m deepseek-chat
+
+# Run with OpenAI
+repoguardian scan ./my-project -p openai -m gpt-4o
+```
+## 🏗️ Architecture & Roadmap
+
+RepoGuardian is being built in phases to solve the "Context Window" problem in AI code auditing.
+
+- [x] **Phase 1 (Current): The MVP.** Basic file-walking and direct LLM prompting. Perfect for small-to-medium repos.
+- [ ] **Phase 2: The Parser Layer.** Integrating Tree-sitter for AST (Abstract Syntax Tree) generation to understand code structure.
+- [ ] **Phase 3: The Memory Layer.** Implementing ChromaDB/Qdrant for semantic vector search, allowing the AI to trace data flows across massive enterprise codebases without hitting context limits.
+- [ ] **Phase 4: Agentic Loop.** Implementing ReAct framework so the AI can autonomously use tools (`grep`, `view_file`, `run_linter`) to investigate complex bugs.
+
+## 🤝 Contributing
+
+We are building this in the open and would love your help! RepoGuardian is designed to be modular and easy to contribute to.
+
+Check out our [Contributing Guide](CONTRIBUTING.md) and look for issues tagged with:
+
+- 🟢 `good first issue` (Great for beginners)
+- 🟡 `help wanted` (Core feature development)
+- 🔴 `bug` (Squash some bugs)
+
+**Ideas for first contributions:**
+1. Add support for more file extensions (`.swift`, `.kt`, `.rs`).
+2. Add a `--output` flag to save reports to a `.md` file.
+3. Implement a `rich.progress` bar for the file indexing step.
+
+## 📄 License
+
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
