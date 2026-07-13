@@ -22,7 +22,7 @@ RepoGuardian bridges the gap between traditional static analysis (which misses c
 
 Install directly from GitHub:
 ```bash
-pip install git+https://github.com/YOUR_USERNAME/repoguardian.git
+pip install git+https://github.com/cforcross/repoguardian.git
 ```
 ##  Configuration (For API Users)
 ```bash
