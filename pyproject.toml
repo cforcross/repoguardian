@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repoguardian"
+version = "0.1.0"
+description = "An open-source AI agent that scans entire codebases for security vulnerabilities."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "langchain>=0.2.0",
+    "langchain-openai>=0.1.0",
+    "langchain-ollama>=0.1.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+# This creates the `repoguardian` command in the user's terminal
+repoguardian = "cli:app"
